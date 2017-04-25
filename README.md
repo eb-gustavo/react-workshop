@@ -106,3 +106,69 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+#### React Components
+
+```
+class HelloWorld extends React.Component {
+  render() {
+    return <h1>Hello, world</h1>;
+  }
+}
+
+ReactDOM.render(
+  <HelloWorld />,
+  document.getElementById('root')
+);
+```
+
+```
+class Greetings extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+
+ReactDOM.render(
+  <Greetings name='Pepe' />,
+  document.getElementById('root')
+);
+```
+
+```
+class Greetings extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+
+const element = <Greetings name='Pepe' />;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+#### Composing Components
+
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Welcome name='Sara' />
+      <Welcome name='Cahal' />
+      <Welcome name='Edite' />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
