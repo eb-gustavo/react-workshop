@@ -181,4 +181,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-<a href='https://codepen.io/gingrassia/pen/Njdqpr?editors=0010' target='_blank'>live code</a>
+[live code](https://codepen.io/gingrassia/pen/Njdqpr?editors=0010)
