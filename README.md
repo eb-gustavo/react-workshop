@@ -36,6 +36,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/PmWqNY?editors=0010)
 
 ### JSX
 *Syntax extension to JavaScript. It's recommend to it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript*
@@ -56,6 +57,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/wdgazK?editors=0010)
 
 ```
 const userName = 'Pepe';
@@ -66,6 +68,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/oWBXzQ?editors=0010)
 
 ### Components
 *Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.*
@@ -82,6 +85,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/ybgNVb?editors=0010)
 
 ```
 function Greetings(props) {
@@ -93,6 +97,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/oWBXYJ?editors=0010)
 
 ```
 function Greetings(props) {
@@ -106,6 +111,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/PmWqWw?editors=0010)
 
 #### React Components
 
@@ -121,6 +127,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/eWgNge?editors=0010)
 
 ```
 class Greetings extends React.Component {
@@ -134,6 +141,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/JNEdEa?editors=0010)
 
 ```
 class Greetings extends React.Component {
@@ -149,6 +157,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/gWgpmO?editors=0010)
 
 #### Composing Components
 
@@ -172,3 +181,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+[live code](https://codepen.io/gingrassia/pen/Njdqpr?editors=0010)
