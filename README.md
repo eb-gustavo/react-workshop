@@ -182,6 +182,3 @@ ReactDOM.render(
 );
 ```
 [live code](https://codepen.io/gingrassia/pen/Njdqpr?editors=0010)
-
-<p data-height="265" data-theme-id="0" data-slug-hash="Njdqpr" data-default-tab="result" data-user="gingrassia" data-embed-version="2" data-pen-title="Njdqpr" class="codepen">See the Pen <a href="https://codepen.io/gingrassia/pen/Njdqpr/">Njdqpr</a> by Gustavo Ingrassia (<a href="http://codepen.io/gingrassia">@gingrassia</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
