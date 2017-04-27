@@ -361,4 +361,104 @@ ReactDOM.render(
 ##### It's exercise time!
 [live code](https://codepen.io/gingrassia/pen/PmWbEq?editors=0010)
 
-#### State and Lifecycle
+#### Component Lifecycle
+[documentation](https://facebook.github.io/react/docs/react-component.html)
+
+#### Component State
+_The heart of every React component is its "state", an object that determines how that component renders & behaves. In other words, "state" is what allows you to create components that are dynamic and interactive_
+```
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hi, I'm a clock!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+```
+[live code](https://codepen.io/gingrassia/pen/YVNRgN?editors=0010)
+
+#### Handling Events
+_Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences_
+
+* _React events are named using camelCase, rather than lowercase._
+* _With JSX you pass a function as the event handler, rather than a string._
+
+```
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { isToggleOn: true };
+  }
+
+  handleClick() {
+    let {isToggleOn} = this.state;
+
+    this.setState({
+      isToggleOn: !isToggleOn
+    });
+  }
+
+  handleClickV2() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    let {isToggleOn} = this.state;
+
+    // This binding is necessary to make `this` work in the callback
+    return (
+      <div>
+        <button onClick={this.handleClick.bind(this)}>
+          Button 1 {isToggleOn ? "ON" : "OFF"}
+        </button>
+        <button onClick={this.handleClickV2.bind(this)}>
+          Button 2 {isToggleOn ? "ON" : "OFF"}
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById("root")
+);
+```
+[live code](https://codepen.io/gingrassia/pen/eWgbPz?editors=0010)
+
+##### It's exercise time!
+[live code](https://codepen.io/gingrassia/pen/OmWdLY?editors=0010)
