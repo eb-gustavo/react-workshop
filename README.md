@@ -460,6 +460,9 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/eWgbPz?editors=0010)
 
+##### It's exercise time!
+[live code](https://codepen.io/gingrassia/pen/OmWdLY?editors=0010)
+
 #### Thinking in React
 
 1. Break The UI Into A Component Hierarchy
@@ -472,7 +475,4 @@ ReactDOM.render(
 5. Add Inverse Data Flow
 
 ##### It's exercise time!
-[live code](https://codepen.io/gingrassia/pen/OmWdLY?editors=0010)
-
-##### It's exercise time again!
 [live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010)
