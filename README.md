@@ -460,5 +460,19 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/eWgbPz?editors=0010)
 
+#### Thinking in React
+
+1. Break The UI Into A Component Hierarchy
+2. Build A Static Version in React
+3. Identify The Minimal (but complete) Representation Of UI State
+  - Is it passed in from a parent via props? If so, it probably isn't state
+  - Does it remain unchanged over time? If so, it probably isn't state
+  - Can you compute it based on any other state or props in your component? If so, it isn't state
+4. Identify Where Your State Should Live
+5. Add Inverse Data Flow
+
 ##### It's exercise time!
 [live code](https://codepen.io/gingrassia/pen/OmWdLY?editors=0010)
+
+##### It's exercise time again!
+[live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010)
