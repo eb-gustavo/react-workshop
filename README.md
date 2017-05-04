@@ -472,6 +472,10 @@ ReactDOM.render(
   - Does it remain unchanged over time? If so, it probably isn't state
   - Can you compute it based on any other state or props in your component? If so, it isn't state
 4. Identify Where Your State Should Live
+  - Identify every component that renders something based on that state
+  - Find a common owner component (a single component above all the components that need the state in the hierarchy)
+  - Either the common owner or another component higher up in the hierarchy should own the state
+  - If you can't find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component
 5. Add Inverse Data Flow
 
 ##### It's exercise time!
