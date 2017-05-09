@@ -480,3 +480,6 @@ ReactDOM.render(
 
 ##### It's exercise time!
 [live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010)
+
+##### It's exercise time again!
+[live code](https://codepen.io/gingrassia/pen/dWVyyJ?editors=0010)
