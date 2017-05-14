@@ -1,5 +1,5 @@
 ```
-git@github.com:eb-gustavo/react-workshop.git
+git clone git@github.com:eb-gustavo/react-workshop.git
 cd 02-email-app
 npm install
 npm start
