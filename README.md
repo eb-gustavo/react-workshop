@@ -479,7 +479,7 @@ ReactDOM.render(
 5. Add Inverse Data Flow
 
 ##### It's exercise time!
-[live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010)
+[live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010) or [clone it](./01-email-app)
 
 ##### It's exercise time again! (final)
-[live code](https://codepen.io/gingrassia/pen/dWVyyJ?editors=0010)
+[live code](https://codepen.io/gingrassia/pen/dWVyyJ?editors=0010) or [clone it](./02-email-app)
