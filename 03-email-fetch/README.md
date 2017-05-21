@@ -7,7 +7,7 @@ npm start
 
 for this exercise we're going to get the emails from a server, so in another terminal run:
 ```
-cd api-server
+cd ../api-server
 npm start
 ```
 
