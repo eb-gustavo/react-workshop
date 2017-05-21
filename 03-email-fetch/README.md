@@ -1,7 +1,13 @@
 ```
 git clone git@github.com:eb-gustavo/react-workshop.git
-cd 02-email-app
+cd 02-email-fetch
 npm install
+npm start
+```
+
+for this exercise we're going to get the emails from a server, so in another terminal run:
+```
+cd api-server
 npm start
 ```
 

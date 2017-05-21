@@ -1,5 +1,5 @@
 {
-  "name": "02-email-app",
+  "name": "03-email-fetch",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,7 +7,7 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
