@@ -53,15 +53,15 @@ router.route('/emails')
     // create an email (accessed via POST to http://localhost:8080/emails)
     .post((req, res) => {
         getEmails((emails) => {
-            let newEmail = _.assign({
+            let email = _.assign({
                 id: Date.now(),
                 date: new Date() + '',
                 read: false
             }, req.body);
-            let newEmails = emails.concat(newEmail);
+            emails = emails.concat(email);
 
             // write out file back to disk
-            saveEmails(newEmails, () => {
+            saveEmails(emails, () => {
                 res.json({success: true});
             });
         });
@@ -70,11 +70,30 @@ router.route('/emails')
     // get all the emails (access via GET from http://localhost:8080/emails)
     .get((req, res) => {
         getEmails((emails) => {
+            let {deleted, q, unread} = req.query;
             let processedEmails = _.chain(emails)
-                .filter(({deleted}) => !deleted)
+                .filter((email) => {
+                    if (unread === 'true') {
+                        return !email.read;
+                    }
+                    return true;
+                })
+                .filter((email) => {
+                    if (deleted === 'true') {
+                        return email.deleted;
+                    }
+                    return !email.deleted;
+                })
+                .filter((email) => {
+                    if (q) {
+                        return email.subject.toLowerCase().indexOf(q.toLowerCase()) > -1;
+                    }
+                    return true;
+                })
                 .map((email) => _.omit(email, 'message'))
                 .sortBy([({date}) => (new Date(date)).getTime()])
-                .reverse();
+                .reverse()
+                .value();
 
             // Return back the full list of emails
             res.setHeader('Cache-Control', 'no-cache');
@@ -88,20 +107,20 @@ router.route('/emails/:emailId')
     // get the email with this id (accessed via GET from http://localhost:8080/emails/:emailId)
     .get((req, res) => {
         getEmails((emails) => {
-            let emailIdToGet = +req.params.emailId;
-            let emailToGet = _.find(emails, (email) => email.id === emailIdToGet);
+            let emailId = +req.params.emailId;
+            let email = _.find(emails, (email) => email.id === emailId);
 
-            res.json(emailToGet);
+            res.json(email);
         });
     })
 
     // update the email this id (accessed via PUT on http://localhost:8080/emails/:emailId)
     .put((req, res) => {
         getEmails((emails) => {
-            let emailIdToUpdate = +req.params.emailId;
+            let emailId = +req.params.emailId;
             // make a new copy of the emails list, updating the appropriate email
             let updatedEmails = emails.map((email) => {
-                if (email.id === emailIdToUpdate) {
+                if (email.id === emailId) {
                     // make a copy of the email to update before updating
                     return _.assign({}, email, {
                         read: !!req.body.read
@@ -120,10 +139,10 @@ router.route('/emails/:emailId')
     // delete the email this id (accessed via PUT on http://localhost:8080/emails/:emailId)
     .delete((req, res) => {
         getEmails((emails) => {
-            let emailIdToDelete = +req.params.emailId;
+            let emailId = +req.params.emailId;
             // make a new copy of the emails list, marking the appropriate email as deleted
             let updatedEmails = emails.map((email) => {
-                if (email.id === emailIdToDelete) {
+                if (email.id === emailId) {
                     // make a copy of the email to update before updating
                     return _.assign({}, email, {
                         deleted: true

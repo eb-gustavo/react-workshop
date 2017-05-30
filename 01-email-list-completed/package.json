@@ -1,11 +1,10 @@
 {
-  "name": "03-email-fetch",
+  "name": "01-email-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "url-lib": "^2.0.2"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "react-scripts": "1.0.2"

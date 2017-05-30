@@ -16,6 +16,7 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 | [eventbrite_design_system](https://github.com/eventbrite/eventbrite_design_system) | latest | https://github.com/eventbrite/eventbrite_design_system/blob/master/README.md |
 | [es6-promise](https://www.npmjs.com/package/es6-promise) | 3.1.2 | http://people.mozilla.org/~jorendorff/es6-draft.html#sec-promise-constructor |
 | [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch) | 0.11.0 | https://github.com/github/fetch/blob/master/README.md |
+| [url-lib](https://www.npmjs.com/package/url-lib) | 2.0.2 | https://github.com/benmvp/url-lib/tree/master/docs |
 
 ---
 
@@ -26,6 +27,8 @@ ReactDOM.render(
   container
 );
 ```
+
+[full documentation](https://facebook.github.io/react/docs/react-dom.html)
 
 ## React
 *A javascript library for building user interfaces*
@@ -40,6 +43,8 @@ ReactDOM.render(
 
 ### JSX
 *Syntax extension to JavaScript. It's recommend to it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript*
+
+[full documentation](https://facebook.github.io/react/docs/jsx-in-depth.html)
 
 ### Elements
 *Elements are the smallest building blocks of React apps.
@@ -362,7 +367,31 @@ ReactDOM.render(
 [live code](https://codepen.io/gingrassia/pen/PmWbEq?editors=0010)
 
 #### Component Lifecycle
-[documentation](https://facebook.github.io/react/docs/react-component.html)
+_Each component has several "lifecycle methods" that you can override to run code at particular times in the process. Methods prefixed with will are called right before something happens, and methods prefixed with did are called right after something happens_
+
+##### Mounting
+These methods are called when an instance of a component is being created and inserted into the DOM:
+
+  - constructor()
+  - componentWillMount()
+  - render()
+  - componentDidMount()
+
+##### Updating
+An update can be caused by changes to props or state. These methods are called when a component is being re-rendered:
+
+  - componentWillReceiveProps()
+  - shouldComponentUpdate()
+  - componentWillUpdate()
+  - render()
+  - componentDidUpdate()
+
+##### Unmounting
+This method is called when a component is being removed from the DOM:
+
+  - componentWillUnmount()
+
+[full documentation](https://facebook.github.io/react/docs/react-component.html)
 
 #### Component State
 _The heart of every React component is its "state", an object that determines how that component renders & behaves. In other words, "state" is what allows you to create components that are dynamic and interactive_
@@ -443,10 +472,10 @@ class Toggle extends React.Component {
     return (
       <div>
         <button onClick={this.handleClick.bind(this)}>
-          Button 1 {isToggleOn ? "ON" : "OFF"}
+          Button 1 {isToggleOn ? 'ON' : 'OFF'}
         </button>
         <button onClick={this.handleClickV2.bind(this)}>
-          Button 2 {isToggleOn ? "ON" : "OFF"}
+          Button 2 {isToggleOn ? 'ON' : 'OFF'}
         </button>
       </div>
     );
@@ -455,7 +484,7 @@ class Toggle extends React.Component {
 
 ReactDOM.render(
   <Toggle />,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 ```
 [live code](https://codepen.io/gingrassia/pen/eWgbPz?editors=0010)
@@ -486,3 +515,53 @@ ReactDOM.render(
 
 ##### It's exercise time once again!
 [clone it](./03-email-fetch)
+
+#### Creating React Apps on Eventbrite
+[documentation](https://github.com/eventbrite/core/blob/master/django/media/django/js/src/require/react/README.md)
+
+[result](https://github.com/eventbrite/core/compare/react_app)
+
+#### Higher-Order Components
+_A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature_
+
+_Concretely, **a higher-order component is a function that takes a component and returns a new component**_
+
+```
+const EnhancedComponent = higherOrderComponent(WrappedComponent);
+```
+
+_Whereas a component transforms props into UI, a higher-order component transforms a component into another component_
+
+```
+class HelloWorld extends React.Component {
+  render() {
+    return (
+      <h1>{this.props.greetings}</h1>
+    );
+  }
+}
+
+const higherOrderComponent = (WrappedComponent) => (
+  class EnhancedComponent extends React.Component {
+    render() {
+      let newProps = {
+        greetings: 'I\'m a Super Hello World!'
+      };
+
+      return (
+        <WrappedComponent {...this.props} {...newProps} />
+      );
+    }
+  }
+);
+
+const EnhancedHelloWorld = higherOrderComponent(HelloWorld);
+
+ReactDOM.render(
+  <EnhancedHelloWorld />,
+  document.getElementById('root')
+);
+```
+[live code](https://codepen.io/gingrassia/pen/pPXEaq?editors=0010)
+
+[full documentation](https://facebook.github.io/react/docs/higher-order-components.html)

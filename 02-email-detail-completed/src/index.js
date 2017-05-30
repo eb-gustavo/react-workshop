@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import {emails} from './constants';
 
 ReactDOM.render(
-    <App />,
+    <App emails={emails} />,
     document.getElementById('root')
 );
 

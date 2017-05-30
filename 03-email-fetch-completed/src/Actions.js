@@ -5,7 +5,6 @@ export default class Actions extends React.Component {
     static propTypes = {
         onClearSelectedEmailsClicked: PropTypes.func.isRequired,
         onMarkAsDeletedClicked: PropTypes.func.isRequired,
-        onMarkAsNotDeletedClicked: PropTypes.func.isRequired,
         onMarkAsReadClicked: PropTypes.func.isRequired,
         onMarkAsUnreadClicked: PropTypes.func.isRequired,
         showButtons: PropTypes.bool
@@ -35,12 +34,6 @@ export default class Actions extends React.Component {
         onMarkAsDeletedClicked();
     }
 
-    handleMarkAsNotDeletedClicked() {
-        let {onMarkAsNotDeletedClicked} = this.props;
-
-        onMarkAsNotDeletedClicked();
-    }
-
     render() {
         let {showButtons} = this.props;
         let content = null;
@@ -67,11 +60,6 @@ export default class Actions extends React.Component {
                       onClick={this.handleMarkAsDeletedClicked.bind(this)}
                     >
                         Mark as deleted
-                    </button>
-                    <button
-                      onClick={this.handleMarkAsNotDeletedClicked.bind(this)}
-                    >
-                        Mark as not deleted
                     </button>
                 </div>
             );

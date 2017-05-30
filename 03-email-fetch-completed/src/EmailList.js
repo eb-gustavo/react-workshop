@@ -1,31 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 import EmailRow from './EmailRow';
-
-const _filterEmails = (emails, filterText, showDeleted, showUnread) => (
-    _.chain(emails)
-        .filter((email) => {
-            if (showUnread) {
-              return !email.read;
-            }
-            return true;
-        })
-        .filter((email) => {
-            if (showDeleted) {
-              return email.deleted;
-            }
-            return true;
-        })
-        .filter((email) => {
-            if (filterText) {
-              return email.subject.toLowerCase().indexOf(filterText.toLowerCase()) > -1;
-            }
-            return true;
-        })
-        .value()
-);
 
 export default class EmailList extends React.Component {
     static propTypes = {
@@ -34,12 +10,9 @@ export default class EmailList extends React.Component {
             from: PropTypes.string.isRequired,
             subject: PropTypes.string.isRequired
         })).isRequired,
-        filterText: PropTypes.string.isRequired,
         onEmailRowSelected: PropTypes.func.isRequired,
         onEmailSelected: PropTypes.func.isRequired,
-        selectedEmails: PropTypes.object.isRequired,
-        showUnread: PropTypes.bool,
-        showDeleted: PropTypes.bool
+        selectedEmails: PropTypes.object.isRequired
     }
 
     static defaultProps = {
@@ -60,9 +33,8 @@ export default class EmailList extends React.Component {
     }
 
     render() {
-        let {emails, filterText, selectedEmails, showDeleted, showUnread} = this.props;
-        let filteredEmails = _filterEmails(emails, filterText, showDeleted, showUnread);
-        let emailList = filteredEmails.map((email) => (
+        let {emails, selectedEmails} = this.props;
+        let emailList = emails.map((email) => (
             <EmailRow
                 key={email.id}
                 email={email}
