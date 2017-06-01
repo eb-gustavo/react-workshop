@@ -533,14 +533,6 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 _Whereas a component transforms props into UI, a higher-order component transforms a component into another component_
 
 ```
-class HelloWorld extends React.Component {
-  render() {
-    return (
-      <h1>{this.props.greetings}</h1>
-    );
-  }
-}
-
 const higherOrderComponent = (WrappedComponent) => (
   class EnhancedComponent extends React.Component {
     render() {
@@ -555,6 +547,14 @@ const higherOrderComponent = (WrappedComponent) => (
   }
 );
 
+class HelloWorld extends React.Component {
+  render() {
+    return (
+      <h1>{this.props.greetings}</h1>
+    );
+  }
+}
+
 const EnhancedHelloWorld = higherOrderComponent(HelloWorld);
 
 ReactDOM.render(
@@ -563,5 +563,36 @@ ReactDOM.render(
 );
 ```
 [live code](https://codepen.io/gingrassia/pen/pPXEaq?editors=0010)
+
+```
+const higherOrderComponent = () => (WrappedComponent) => (
+  class EnhancedComponent extends React.Component {
+    render() {
+      let newProps = {
+        greetings: 'I\'m a Super Hello World!'
+      };
+
+      return (
+        <WrappedComponent {...this.props} {...newProps} />
+      );
+    }
+  }
+);
+
+@higherOrderComponent()
+class HelloWorld extends React.Component {
+  render() {
+    return (
+      <h1>{this.props.greetings}</h1>
+    );
+  }
+}
+
+ReactDOM.render(
+  <HelloWorld greetings='Hello World!' />,
+  document.getElementById('root')
+);
+```
+[live code](https://codepen.io/gingrassia/pen/JJPNbY?editors=0010)
 
 [full documentation](https://facebook.github.io/react/docs/higher-order-components.html)
