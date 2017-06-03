@@ -26,6 +26,22 @@ const getEmails = (queryParams) => (
     fetchJSON(formatUrl('http://localhost:8080/emails', queryParams))
 )
 
+const updateEmail = (emailId, data = {}) => (
+    fetchJSON(`http://localhost:8080/emails/${emailId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+)
+
+const deleteEmail = (emailId) => (
+    fetchJSON(`http://localhost:8080/emails/${emailId}`, {
+        method: 'DELETE'
+    })
+)
+
 export default class App extends React.Component {
 
     constructor(props) {
@@ -49,7 +65,7 @@ export default class App extends React.Component {
         };
 
         getEmails(params)
-            .then((emails) => this.setState({emails}))
+            .then((emails) => this.setState({emails, selectedEmails: {}, selectedEmailId: 0}))
             .catch((error) => console.error(error));
     }
 
@@ -86,48 +102,39 @@ export default class App extends React.Component {
     }
 
     handleMarkAsRead() {
-        // let {emails, selectedEmails} = this.state;
-        // let modifiedEmails = _.map(emails, (email) => {
-        //     if (selectedEmails[email.id]) {
-        //         email.read = true;
-        //     }
-        //     return email;
-        // });
-        //
-        // this.setState({
-        //     emails: modifiedEmails,
-        //     selectedEmailId: 0
-        // });
+        let {selectedEmails} = this.state;
+        let promise = Promise.resolve();
+
+        _.each(selectedEmails, (value, emailId) => {
+            if (value) {
+                promise = promise.then(() => updateEmail(emailId, {read: true}));
+            }
+        });
+        promise.then(() => this._fetchEmails({}));
     }
 
     handleMarkAsUnread() {
-        // let {emails, selectedEmails} = this.state;
-        // let modifiedEmails = _.map(emails, (email) => {
-        //     if (selectedEmails[email.id]) {
-        //         email.read = false;
-        //     }
-        //     return email;
-        // });
-        //
-        // this.setState({
-        //     emails: modifiedEmails,
-        //     selectedEmailId: 0
-        // });
+        let {selectedEmails} = this.state;
+        let promise = Promise.resolve();
+
+        _.each(selectedEmails, (value, emailId) => {
+            if (value) {
+                promise = promise.then(() => updateEmail(emailId, {read: false}));
+            }
+        });
+        promise.then(() => this._fetchEmails({}));
     }
 
     handleMarkAsDeleted() {
-        // let {emails, selectedEmails} = this.state;
-        // let modifiedEmails = _.map(emails, (email) => {
-        //     if (selectedEmails[email.id]) {
-        //         email.deleted = true;
-        //     }
-        //     return email;
-        // });
-        //
-        // this.setState({
-        //     emails: modifiedEmails,
-        //     selectedEmailId: 0
-        // });
+        let {selectedEmails} = this.state;
+        let promise = Promise.resolve();
+
+        _.each(selectedEmails, (value, emailId) => {
+            if (value) {
+                promise = promise.then(() => deleteEmail(emailId));
+            }
+        });
+        promise.then(() => this._fetchEmails({}));
     }
 
     render() {

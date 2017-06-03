@@ -53,13 +53,14 @@ router.route('/emails')
     // create an email (accessed via POST to http://localhost:8080/emails)
     .post((req, res) => {
         getEmails((emails) => {
-            let email = _.assign({
+            let email = {
                 id: Date.now(),
                 date: new Date() + '',
-                read: false
-            }, req.body);
-            emails = emails.concat(email);
+                read: false,
+                ...req.body
+            };
 
+            emails = [...emails, email];
             // write out file back to disk
             saveEmails(emails, () => {
                 res.json({success: true});
@@ -90,7 +91,7 @@ router.route('/emails')
                     }
                     return true;
                 })
-                .map((email) => _.omit(email, 'message'))
+                .map(({message, ...email}) => email)
                 .sortBy([({date}) => (new Date(date)).getTime()])
                 .reverse()
                 .value();
@@ -121,10 +122,12 @@ router.route('/emails/:emailId')
             // make a new copy of the emails list, updating the appropriate email
             let updatedEmails = emails.map((email) => {
                 if (email.id === emailId) {
-                    // make a copy of the email to update before updating
-                    return _.assign({}, email, {
-                        read: !!req.body.read
-                    });
+                    if (_.has(req.body, 'read')) {
+                        email = {
+                            ...email,
+                            read: !!req.body.read
+                        };
+                    }
                 }
 
                 return email;
@@ -144,9 +147,10 @@ router.route('/emails/:emailId')
             let updatedEmails = emails.map((email) => {
                 if (email.id === emailId) {
                     // make a copy of the email to update before updating
-                    return _.assign({}, email, {
+                    return {
+                        ...email,
                         deleted: true
-                    });
+                    }
                 }
 
                 return email;
