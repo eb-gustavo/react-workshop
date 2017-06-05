@@ -5,8 +5,7 @@ npm install
 npm start
 ```
 
-but this time wi will [flux](https://facebook.github.io/flux/)
-
+but this time will be with [flux](https://facebook.github.io/flux/)
 
 screen should look like:
 ```
