@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 export default class Actions extends React.Component {
     static propTypes = {
         onEmailDetailsClose: PropTypes.func.isRequired,
         email: PropTypes.shape({
-            date: PropTypes.string.isRequired,
-            from: PropTypes.string.isRequired,
-            message: PropTypes.string.isRequired,
-            subject: PropTypes.string.isRequired
+            date: PropTypes.string,
+            from: PropTypes.string,
+            message: PropTypes.string,
+            subject: PropTypes.string
         })
     }
 
@@ -22,7 +23,7 @@ export default class Actions extends React.Component {
         let {email} = this.props;
         let component = null;
 
-        if (email) {
+        if (!_.isEmpty(email)) {
             let {
                 date,
                 from,
