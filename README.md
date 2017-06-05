@@ -492,7 +492,7 @@ ReactDOM.render(
 ##### It's exercise time!
 [live code](https://codepen.io/gingrassia/pen/OmWdLY?editors=0010)
 
-#### Thinking in React
+### Thinking in React
 
 1. Break The UI Into A Component Hierarchy
 2. Build A Static Version in React
@@ -516,12 +516,12 @@ ReactDOM.render(
 ##### It's exercise time once again!
 [clone it](./03-email-list-detail-fetch)
 
-#### Creating React Apps on Eventbrite
+### Creating React Apps on Eventbrite
 [documentation](https://github.com/eventbrite/core/blob/master/django/media/django/js/src/require/react/README.md)
 
 [result](https://github.com/eventbrite/core/compare/react_app)
 
-#### Higher-Order Components
+### Higher-Order Components
 _A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature_
 
 _Concretely, **a higher-order component is a function that takes a component and returns a new component**_
@@ -597,7 +597,7 @@ ReactDOM.render(
 
 [full documentation](https://facebook.github.io/react/docs/higher-order-components.html)
 
-#### Flux
+## Flux
 
 ##### It's exercise time!
 [clone it](./04-email-list-detail-flux)
