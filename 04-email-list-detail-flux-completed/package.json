@@ -1,8 +1,9 @@
 {
-  "name": "01-email-list-completed",
+  "name": "04-email-list-detail-flux-completed",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "flux": "^3.1.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },

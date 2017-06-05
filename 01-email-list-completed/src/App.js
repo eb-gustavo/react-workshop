@@ -23,7 +23,7 @@ export default class App extends React.Component {
         };
     }
 
-    handleFilterTextChange(value) {
+    handleFiterTextChange(value) {
         this.setState({filterText: value});
     }
 
@@ -41,9 +41,9 @@ export default class App extends React.Component {
         return(
             <div>
                 <Filter
-                    onFilterTextValueChanged={this.handleFilterTextChange.bind(this)}
-                    onShowDeletedValueChanged={this.handleShowDeletedChange.bind(this)}
-                    onShowUnreadValueChanged={this.handleShowUnreadChange.bind(this)}
+                    onFilterText={this.handleFiterTextChange.bind(this)}
+                    onShowDeleted={this.handleShowDeletedChange.bind(this)}
+                    onShowUnread={this.handleShowUnreadChange.bind(this)}
                     {...this.state}
                 />
                 <EmailList

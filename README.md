@@ -511,10 +511,10 @@ ReactDOM.render(
 [live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010) or [clone it](./01-email-list)
 
 ##### It's exercise time again!
-[live code](https://codepen.io/gingrassia/pen/dWVyyJ?editors=0010) or [clone it](./02-email-detail)
+[live code](https://codepen.io/gingrassia/pen/dWVyyJ?editors=0010) or [clone it](./02-email-list-detail)
 
 ##### It's exercise time once again!
-[clone it](./03-email-fetch)
+[clone it](./03-email-list-detail-fetch)
 
 #### Creating React Apps on Eventbrite
 [documentation](https://github.com/eventbrite/core/blob/master/django/media/django/js/src/require/react/README.md)
@@ -596,3 +596,10 @@ ReactDOM.render(
 [live code](https://codepen.io/gingrassia/pen/JJPNbY?editors=0010)
 
 [full documentation](https://facebook.github.io/react/docs/higher-order-components.html)
+
+#### Flux
+
+##### It's exercise time!
+[clone it](./04-email-list-detail-flux)
+
+[full documentation](https://github.com/facebook/flux)
