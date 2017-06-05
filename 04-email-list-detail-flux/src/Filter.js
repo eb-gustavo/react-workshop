@@ -11,12 +11,6 @@ export default class Filter extends React.Component {
         showUnread: PropTypes.bool
     }
 
-    static defaultProps = {
-        onFilterText: () => {},
-        onShowDeleted: () => {},
-        onShowUnread: () => {}
-    }
-
     handleFiterTextChange(e) {
         let {onFilterText} = this.props;
         let {value} = e.target;

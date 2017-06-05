@@ -76,7 +76,7 @@ export default class Actions extends React.Component {
                 </div>
             );
         }
-        return(
+        return (
             <div>
                 {content}
             </div>

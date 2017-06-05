@@ -3,8 +3,8 @@ import React from 'react';
 export default class App extends React.Component {
 
     render() {
-        return(
-            <h1>Start here!</h1>
+        return (
+            <h1>Read the README :)</h1>
         );
     }
 }

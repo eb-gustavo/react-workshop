@@ -38,7 +38,7 @@ export default class App extends React.Component {
     render() {
         let {emails} = this.props;
 
-        return(
+        return (
             <div>
                 <Filter
                     onFilterText={this.handleFiterTextChange.bind(this)}

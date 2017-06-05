@@ -15,11 +15,6 @@ export default class EmailList extends React.Component {
         selectedEmails: PropTypes.object.isRequired
     }
 
-    static defaultProps = {
-        onEmailRowSelected: () => {},
-        onEmailSelected: () => {}
-    }
-
     handleEmailRowSelected(id) {
         let {onEmailRowSelected} = this.props;
 

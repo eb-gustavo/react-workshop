@@ -8,6 +8,7 @@ import EmailList from './EmailList';
 import Filter from './Filter';
 
 import FilterContainer from './FilterContainer';
+import EmailsContainer from './EmailsContainer';
 
 const getSelectedEmail = (emails, selectedEmailId) => _.find(emails, {id: selectedEmailId});
 const hasSelectedEmails = (selectedEmails) => _.some(selectedEmails, _.identity);
@@ -123,20 +124,11 @@ export default class App extends React.Component {
             showUnread,
             showDeleted
         } = this.state;
-        let emailDetailsContent = null;
 
-        if (selectedEmailId) {
-            emailDetailsContent = (
-                <EmailDetails
-                    email={getSelectedEmail(emails, selectedEmailId)}
-                    onEmailDetailsClose={this.handleClearSelectedEmailRow.bind(this)}
-                />
-            );
-        }
-
-        return(
+        return (
             <div>
                 <FilterContainer />
+                <EmailsContainer />
                 <hr />
                 <Filter
                     filterText={filterText}
@@ -162,7 +154,10 @@ export default class App extends React.Component {
                     onEmailRowSelected={this.handleEmailRowSelected.bind(this)}
                     onEmailSelected={this.handleEmailSelected.bind(this)}
                 />
-                {emailDetailsContent}
+                <EmailDetails
+                    email={getSelectedEmail(emails, selectedEmailId)}
+                    onEmailDetailsClose={this.handleClearSelectedEmailRow.bind(this)}
+                />
             </div>
         );
     }

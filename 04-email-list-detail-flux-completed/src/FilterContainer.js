@@ -16,7 +16,8 @@ class FilterContainer extends React.Component {
 
     static calculateState() {
         return {
-            filter: FilterStore.getState(),
+            ...FilterStore.getState(),
+
             onFilterText: filterByText,
             onShowDeleted: showDeleted,
             onShowUnread: showUnread
@@ -24,9 +25,7 @@ class FilterContainer extends React.Component {
     }
 
     render() {
-        let {filter, ...state} = this.state;
-
-        return <Filter {...filter} {...state} />;
+        return <Filter {...this.state} />;
     }
 }
 

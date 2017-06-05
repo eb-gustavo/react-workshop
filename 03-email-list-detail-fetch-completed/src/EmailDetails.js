@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 const checkStatus = (response = {}) => {
     if (response.status >= 300) {
@@ -20,12 +21,8 @@ const getEmail = (id) => (
 
 export default class Actions extends React.Component {
     static propTypes = {
-        emailId: PropTypes.number,
-        onEmailDetailsClose: PropTypes.func.isRequired
-    }
-
-    static defaultProps = {
-        onEmailDetailsClose: () => {}
+        onEmailDetailsClose: PropTypes.func.isRequired,
+        emailId: PropTypes.number
     }
 
     constructor(props) {
@@ -42,16 +39,14 @@ export default class Actions extends React.Component {
             .catch((error) => console.error(error));
     }
 
-    componentDidMount() {
-        let {emailId} = this.props;
-
-        this._fetchEmail(emailId);
-    }
-
     componentWillReceiveProps(nextProps) {
         let {emailId} = nextProps;
 
-        this._fetchEmail(emailId);
+        if (emailId) {
+            this._fetchEmail(emailId);
+        } else {
+            this.setState({email: {}});
+        }
     }
 
     handleCloseClicked() {
@@ -63,35 +58,44 @@ export default class Actions extends React.Component {
     }
 
     render() {
-        let {
-            email: {
+        let {email} = this.state;
+        let component = null;
+
+        if (!_.isEmpty(email)) {
+            let {
                 date,
                 from,
                 message,
                 subject
-            }
-        } = this.state;
+            } = email;
 
-        return(
+            component = (
+                <div>
+                    <button
+                        onClick={this.handleCloseClicked.bind(this)}
+                    >
+                        Close
+                    </button>
+                    <div>
+                        <b>Subject:</b> {subject}
+                    </div>
+                    <div>
+                        <b>Date:</b> {date}
+                    </div>
+                    <div>
+                        <b>From:</b> {from}
+                    </div>
+                    <div>
+                        <b>Message:</b>
+                    </div>
+                    <div dangerouslySetInnerHTML={{__html: message}} />
+                </div>
+            );
+        }
+
+        return (
             <div>
-                <button
-                    onClick={this.handleCloseClicked.bind(this)}
-                >
-                    Close
-                </button>
-                <div>
-                    <b>Subject:</b> <span>{subject}</span>
-                </div>
-                <div>
-                    <b>Date:</b> {date}
-                </div>
-                <div>
-                    <b>From:</b> {from}
-                </div>
-                <div>
-                    <b>Message:</b>
-                </div>
-                <div dangerouslySetInnerHTML={{__html: message}} />
+                {component}
             </div>
         );
     }

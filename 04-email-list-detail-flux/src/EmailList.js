@@ -42,11 +42,6 @@ export default class EmailList extends React.Component {
         showDeleted: PropTypes.bool
     }
 
-    static defaultProps = {
-        onEmailRowSelected: () => {},
-        onEmailSelected: () => {}
-    }
-
     handleEmailRowSelected(id) {
         let {onEmailRowSelected} = this.props;
 

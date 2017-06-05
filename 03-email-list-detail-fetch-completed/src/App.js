@@ -164,18 +164,8 @@ export default class App extends React.Component {
             showUnread,
             showDeleted
         } = this.state;
-        let emailDetailsContent = null;
 
-        if (selectedEmailId) {
-            emailDetailsContent = (
-                <EmailDetails
-                    emailId={selectedEmailId}
-                    onEmailDetailsClose={this.handleClearSelectedEmailRow.bind(this)}
-                />
-            );
-        }
-
-        return(
+        return (
             <div>
                 <Filter
                     filterText={filterText}
@@ -198,7 +188,10 @@ export default class App extends React.Component {
                     onEmailSelected={this.handleEmailSelected.bind(this)}
                     selectedEmails={selectedEmails}
                 />
-                {emailDetailsContent}
+                <EmailDetails
+                    emailId={selectedEmailId}
+                    onEmailDetailsClose={this.handleClearSelectedEmailRow.bind(this)}
+                />
             </div>
         );
     }
