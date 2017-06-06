@@ -1,7 +1,7 @@
-export const CLEAR_SELECTED_EMAIL_ID = 'CLEAR_SELECTED_EMAIL_ID';
-export const CLEAR_SELECTED_EMAILS = 'CLEAR_SELECTED_EMAILS';
-export const MARK_EMAILS_AS_DELETED = 'MARK_EMAILS_AS_DELETED';
-export const MARK_EMAILS_AS_READ = 'MARK_EMAILS_AS_READ';
-export const MARK_EMAILS_AS_UNREAD = 'MARK_EMAILS_AS_UNREAD';
-export const SELECT_EMAIL_ID = 'SELECT_EMAIL_ID';
-export const SELECT_EMAIL = 'SELECT_EMAIL';
+export const CLEAR_SELECTED_EMAIL_ID = 'clearSelectedEmailId';
+export const CLEAR_SELECTED_EMAILS = 'clearSelectedEmails';
+export const MARK_EMAILS_AS_DELETED = 'markEmailsAsDeleted';
+export const MARK_EMAILS_AS_READ = 'markEmailsAsRead';
+export const MARK_EMAILS_AS_UNREAD = 'markEmailsAsUnread';
+export const SELECT_EMAIL_ID = 'selectEmailId';
+export const SELECT_EMAIL = 'selectEmail';

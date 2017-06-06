@@ -1,3 +1,3 @@
-export const FILTER_TEXT = 'FILTER_TEXT';
-export const SHOW_DELETED = 'SHOW_DELETED';
-export const SHOW_UNREAD = 'SHOW_UNREAD';
+export const FILTER_TEXT = 'filterText';
+export const SHOW_DELETED = 'showDeleted';
+export const SHOW_UNREAD = 'showUnread';
