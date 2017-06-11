@@ -710,4 +710,7 @@ originate from views, which is common)_
 ##### It's exercise time!
 [clone it](./04-email-list-detail-flux)
 
+##### It's exercise time again!
+[clone it](./05-email-list-detail-fetch-flux)
+
 [full documentation](https://github.com/facebook/flux)

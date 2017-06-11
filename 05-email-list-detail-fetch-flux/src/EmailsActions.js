@@ -9,6 +9,7 @@ import {
     SELECT_EMAIL
 } from './EmailsActionTypes';
 
+
 export const clearSelectedEmailId = () => {
     AppDispatcher.dispatch({
         type: CLEAR_SELECTED_EMAIL_ID
