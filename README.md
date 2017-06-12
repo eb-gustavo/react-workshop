@@ -4,7 +4,7 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 
 ### Most relevant libs included in our stack
 | Lib | Version | Docs |
-| --- | ------- | ---- |
+| :-- | :------ | :--- |
 | [react](https://www.npmjs.com/package/react) | 15.4.2 | https://facebook.github.io/react/docs/hello-world.html |
 | [react-dom](https://www.npmjs.com/package/react-dom) | 15.4.2 | https://facebook.github.io/react/docs/react-dom.html |
 | [redux](https://www.npmjs.com/package/redux) | 3.5.2 | http://redux.js.org/ |
@@ -21,7 +21,7 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 ---
 
 ## ReactDOM
-```
+```js
 ReactDOM.render(
   element,
   container
@@ -33,7 +33,7 @@ ReactDOM.render(
 ## React
 *A javascript library for building user interfaces*
 
-```
+```js
 ReactDOM.render(
   <h1>Hello, world!</h1>,
   document.getElementById('root')
@@ -50,11 +50,11 @@ ReactDOM.render(
 *Elements are the smallest building blocks of React apps.
 An element describes what you want to see on the screen:*
 
-```
+```js
 const element = <h1>Hello, world</h1>;
 ```
 
-```
+```js
 const element = <h1>Hello, world</h1>;
 
 ReactDOM.render(
@@ -64,7 +64,7 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/wdgazK?editors=0010)
 
-```
+```js
 const userName = 'Pepe';
 const element = <h1>Greetings, {userName}</h1>;
 
@@ -80,7 +80,7 @@ ReactDOM.render(
 
 *Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen*
 
-```
+```js
 function HelloWorld() {
   return <h1>Hello, world</h1>;
 }
@@ -92,7 +92,7 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/ybgNVb?editors=0010)
 
-```
+```js
 function Greetings(props) {
   return <h1>Hello, {props.name}</h1>;
 }
@@ -104,7 +104,7 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/oWBXYJ?editors=0010)
 
-```
+```js
 function Greetings(props) {
   return <h1>Hello, {props.name}</h1>;
 }
@@ -120,7 +120,7 @@ ReactDOM.render(
 
 #### React Components
 
-```
+```js
 class HelloWorld extends React.Component {
   render() {
     return <h1>Hello, world</h1>;
@@ -134,7 +134,7 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/eWgNge?editors=0010)
 
-```
+```js
 class Greetings extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
@@ -148,7 +148,7 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/JNEdEa?editors=0010)
 
-```
+```js
 class Greetings extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
@@ -166,7 +166,7 @@ ReactDOM.render(
 
 #### Composing Components
 
-```
+```js
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
@@ -189,7 +189,7 @@ ReactDOM.render(
 [live code](https://codepen.io/gingrassia/pen/Njdqpr?editors=0010)
 
 #### Typechecking With PropTypes
-```
+```js
 {
   // You can declare that a prop is a specific JS primitive. By default, these
   // are all optional.
@@ -271,12 +271,12 @@ ReactDOM.render(
 ```
 
 Usage:
-```
+```js
 class Greetings extends React.Component {
   render() {
     let {age, name} = this.props;
 
-    return <span>Hi! I'm {name} and I am {age} years old</span>;
+    return <span>Hi! I am {name} and I am {age} years old</span>;
   }
 }
 
@@ -296,7 +296,7 @@ ReactDOM.render(
 _You can define default values for your props by assigning to the special defaultProps property_
 
 Usage:
-```
+```js
 class Greetings extends React.Component {
   render() {
     return (
@@ -322,7 +322,7 @@ ReactDOM.render(
 
 #### Lists and Keys
 This is wrong!
-```
+```js
 function NumberList(props) {
   let listItems = props.numbers.map((number) =>
     <li>{number}</li>
@@ -344,7 +344,7 @@ ReactDOM.render(
 Solution:
 ##### Keys
 _Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity_
-```
+```js
 function NumberList(props) {
   let listItems = props.numbers.map((number) => (
     <li key={number.toString()}>{number}</li>
@@ -395,7 +395,7 @@ This method is called when a component is being removed from the DOM:
 
 #### Component State
 _The heart of every React component is its "state", an object that determines how that component renders & behaves. In other words, "state" is what allows you to create components that are dynamic and interactive_
-```
+```js
 class Clock extends React.Component {
   constructor(props) {
     super(props);
@@ -423,7 +423,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hi, I'm a clock!</h1>
+        <h1>Hi, I am a clock!</h1>
         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
@@ -443,7 +443,7 @@ _Handling events with React elements is very similar to handling events on DOM e
 * _React events are named using camelCase, rather than lowercase._
 * _With JSX you pass a function as the event handler, rather than a string._
 
-```
+```js
 class Toggle extends React.Component {
   constructor(props) {
     super(props);
@@ -526,13 +526,13 @@ _A higher-order component (HOC) is an advanced technique in React for reusing co
 
 _Concretely, **a higher-order component is a function that takes a component and returns a new component**_
 
-```
+```js
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
 ```
 
 _Whereas a component transforms props into UI, a higher-order component transforms a component into another component_
 
-```
+```js
 const higherOrderComponent = (WrappedComponent) => (
   class EnhancedComponent extends React.Component {
     render() {
@@ -564,7 +564,7 @@ ReactDOM.render(
 ```
 [live code](https://codepen.io/gingrassia/pen/pPXEaq?editors=0010)
 
-```
+```js
 const higherOrderComponent = () => (WrappedComponent) => (
   class EnhancedComponent extends React.Component {
     render() {
@@ -656,7 +656,7 @@ Examples:
 1. When a user clicks "delete" on a completed todo a single "delete-todo"
    action is dispatched:
 
-```
+```js
   {
     type: 'delete-todo',
     todoID: '1234',
