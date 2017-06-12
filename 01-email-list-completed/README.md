@@ -22,4 +22,4 @@ screen should look like:
 -------------------------
 ```
 
-[back](./)
+[back](../)
