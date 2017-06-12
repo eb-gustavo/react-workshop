@@ -1,4 +1,4 @@
-```
+```sh
 git clone git@github.com:eb-gustavo/react-workshop.git
 cd 04-email-list-detail-flux-completed
 npm install
@@ -28,3 +28,5 @@ screen should look like:
 | email content here               |
 ------------------------------------
 ```
+
+[back](./)

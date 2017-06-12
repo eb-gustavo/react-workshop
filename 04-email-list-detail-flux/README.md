@@ -1,4 +1,4 @@
-```
+```sh
 git clone git@github.com:eb-gustavo/react-workshop.git
 cp -R 04-email-list-detail-flux my_env
 cd my_env/04-email-list-detail-flux/
@@ -29,3 +29,5 @@ screen should look like:
 | email content here               |
 ------------------------------------
 ```
+
+[back](./)

@@ -4,7 +4,7 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 
 ### Most relevant libs included in our stack
 | Lib | Version | Docs |
-| :-- | :------ | :--- |
+|:----|:--------|:-----|
 | [react](https://www.npmjs.com/package/react) | 15.4.2 | https://facebook.github.io/react/docs/hello-world.html |
 | [react-dom](https://www.npmjs.com/package/react-dom) | 15.4.2 | https://facebook.github.io/react/docs/react-dom.html |
 | [redux](https://www.npmjs.com/package/redux) | 3.5.2 | http://redux.js.org/ |

@@ -1,4 +1,4 @@
-```
+```sh
 git clone git@github.com:eb-gustavo/react-workshop.git
 cp -R 03-email-list-detail-fetch my_env
 cd my_env/03-email-list-detail-fetch/
@@ -7,10 +7,11 @@ npm start
 ```
 
 for this exercise we're going to get the emails from a server, so in another terminal run:
-```
+```sh
 cd ../api-server
 npm start
 ```
+[api-server docs](api-server)
 
 screen should look like:
 ```
@@ -33,3 +34,5 @@ screen should look like:
 | email content here               |
 ------------------------------------
 ```
+
+[back](./)

@@ -1,4 +1,4 @@
-```
+```sh
 git clone git@github.com:eb-gustavo/react-workshop.git
 cd 02-email-list-detail
 npm install
@@ -26,3 +26,5 @@ screen should look like:
 | email content here               |
 ------------------------------------
 ```
+
+[back](./)
