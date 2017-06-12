@@ -19,9 +19,10 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 | [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch) | 0.11.0 | https://github.com/github/fetch/blob/master/README.md |
 | [url-lib](https://www.npmjs.com/package/url-lib) | 2.0.2 | https://github.com/benmvp/url-lib/tree/master/docs |
 
----
+* * *
 
 ## ReactDOM
+
 ```js
 ReactDOM.render(
   element,
@@ -40,6 +41,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/PmWqNY?editors=0010)
 
 ### JSX
@@ -63,6 +65,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/wdgazK?editors=0010)
 
 ```js
@@ -74,6 +77,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/oWBXzQ?editors=0010)
 
 ### Components
@@ -91,6 +95,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/ybgNVb?editors=0010)
 
 ```js
@@ -103,6 +108,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/oWBXYJ?editors=0010)
 
 ```js
@@ -117,6 +123,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/PmWqWw?editors=0010)
 
 #### React Components
@@ -133,6 +140,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/eWgNge?editors=0010)
 
 ```js
@@ -147,6 +155,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/JNEdEa?editors=0010)
 
 ```js
@@ -163,6 +172,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/gWgpmO?editors=0010)
 
 #### Composing Components
@@ -187,9 +197,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/Njdqpr?editors=0010)
 
 #### Typechecking With PropTypes
+
 ```js
 {
   // You can declare that a prop is a specific JS primitive. By default, these
@@ -272,6 +284,7 @@ ReactDOM.render(
 ```
 
 Usage:
+
 ```js
 class Greetings extends React.Component {
   render() {
@@ -291,12 +304,14 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/LyxxOp?editors=0010)
 
 #### Default Prop Values
 _You can define default values for your props by assigning to the special defaultProps property_
 
 Usage:
+
 ```js
 class Greetings extends React.Component {
   render() {
@@ -319,10 +334,13 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/VbPPKv?editors=0010)
 
 #### Lists and Keys
+
 This is wrong!
+
 ```js
 function NumberList(props) {
   let listItems = props.numbers.map((number) =>
@@ -343,8 +361,10 @@ ReactDOM.render(
 [live code](https://codepen.io/gingrassia/pen/WjRpPN?editors=0010)
 
 Solution:
+
 ##### Keys
 _Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity_
+
 ```js
 function NumberList(props) {
   let listItems = props.numbers.map((number) => (
@@ -362,15 +382,18 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/oWBZVd?editors=0010)
 
 ##### It's exercise time!
+
 [live code](https://codepen.io/gingrassia/pen/PmWbEq?editors=0010)
 
 #### Component Lifecycle
 _Each component has several "lifecycle methods" that you can override to run code at particular times in the process. Methods prefixed with will are called right before something happens, and methods prefixed with did are called right after something happens_
 
 ##### Mounting
+
 These methods are called when an instance of a component is being created and inserted into the DOM:
 
   - constructor()
@@ -379,6 +402,7 @@ These methods are called when an instance of a component is being created and in
   - componentDidMount()
 
 ##### Updating
+
 An update can be caused by changes to props or state. These methods are called when a component is being re-rendered:
 
   - componentWillReceiveProps()
@@ -388,6 +412,7 @@ An update can be caused by changes to props or state. These methods are called w
   - componentDidUpdate()
 
 ##### Unmounting
+
 This method is called when a component is being removed from the DOM:
 
   - componentWillUnmount()
@@ -396,6 +421,7 @@ This method is called when a component is being removed from the DOM:
 
 #### Component State
 _The heart of every React component is its "state", an object that determines how that component renders & behaves. In other words, "state" is what allows you to create components that are dynamic and interactive_
+
 ```js
 class Clock extends React.Component {
   constructor(props) {
@@ -436,6 +462,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/YVNRgN?editors=0010)
 
 #### Handling Events
@@ -488,9 +515,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/eWgbPz?editors=0010)
 
 ##### It's exercise time!
+
 [live code](https://codepen.io/gingrassia/pen/OmWdLY?editors=0010)
 
 ### Thinking in React
@@ -509,15 +538,19 @@ ReactDOM.render(
 5. Add Inverse Data Flow
 
 ##### It's exercise time!
+
 [live code](https://codepen.io/gingrassia/pen/QvddBV?editors=0010) or [clone it](./01-email-list)
 
 ##### It's exercise time again!
+
 [live code](https://codepen.io/gingrassia/pen/dWVyyJ?editors=0010) or [clone it](./02-email-list-detail)
 
 ##### It's exercise time once again!
+
 [clone it](./03-email-list-detail-fetch)
 
 ### Creating React Apps on Eventbrite
+
 [documentation](https://github.com/eventbrite/core/blob/master/django/media/django/js/src/require/react/README.md)
 
 [result](https://github.com/eventbrite/core/compare/react_app)
@@ -594,6 +627,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 [live code](https://codepen.io/gingrassia/pen/JJPNbY?editors=0010)
 
 [full documentation](https://facebook.github.io/react/docs/higher-order-components.html)
@@ -706,12 +740,15 @@ originate from views, which is common)_
 ### Flux Lib
 
 [Dispatcher](http://facebook.github.io/flux/docs/dispatcher.html#content)
+
 [Flux Utils](http://facebook.github.io/flux/docs/flux-utils.html#content)
 
 ##### It's exercise time!
+
 [clone it](./04-email-list-detail-flux)
 
 ##### It's exercise time again!
+
 [clone it](./05-email-list-detail-fetch-flux)
 
 [full documentation](https://github.com/facebook/flux)
