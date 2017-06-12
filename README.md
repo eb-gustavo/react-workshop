@@ -3,6 +3,7 @@
 This workshop is about how to build a React App using Eventbrite stack and not die trying...
 
 ### Most relevant libs included in our stack
+
 | head1        | head two          | three |
 |:-------------|:------------------|:------|
 | ok           | good swedish fish | nice  |
