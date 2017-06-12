@@ -1,4 +1,4 @@
-```
+```bash
 git clone git@github.com:eb-gustavo/react-workshop.git
 cp -R 01-email-list my_env
 cd my_env/01-email-list/
