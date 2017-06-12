@@ -4,13 +4,6 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 
 ### Most relevant libs included in our stack
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
 | Lib | Version | Docs |
 |:----|:--------|:-----|
 | [react](https://www.npmjs.com/package/react) | 15.4.2 | https://facebook.github.io/react/docs/hello-world.html |
