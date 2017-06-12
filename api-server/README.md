@@ -18,4 +18,4 @@ by default, application will run on port `8080` if you want to change it, you ca
 * update the email this id (accessed via PUT on http://localhost:8080/emails/:emailId)
 * delete the email this id (accessed via PUT on http://localhost:8080/emails/:emailId)
 
-[back](./)
+[back](../)
