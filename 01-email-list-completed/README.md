@@ -1,4 +1,4 @@
-```
+```sh
 git clone git@github.com:eb-gustavo/react-workshop.git
 cd 01-email-app
 npm install
