@@ -6,6 +6,7 @@ import Actions from './Actions';
 import EmailDetails from './EmailDetails';
 import EmailList from './EmailList';
 import Filter from './Filter';
+import FilterContainer from './FilterContainer';
 
 const getSelectedEmail = (emails, selectedEmailId) => _.find(emails, {id: selectedEmailId});
 const hasSelectedEmails = (selectedEmails) => _.some(selectedEmails, _.identity);
@@ -124,6 +125,8 @@ export default class App extends React.Component {
 
         return (
             <div>
+                <FilterContainer />
+                <hr />
                 <Filter
                     filterText={filterText}
                     showDeleted={showDeleted}
