@@ -30,7 +30,9 @@ ReactDOM.render(
 );
 ```
 
-[full documentation](https://facebook.github.io/react/docs/react-dom.html)
+##### Documentation
+
+[documentation link](https://facebook.github.io/react/docs/react-dom.html)
 
 ## React
 *A javascript library for building user interfaces*
@@ -47,7 +49,9 @@ ReactDOM.render(
 ### JSX
 *Syntax extension to JavaScript. It's recommend to it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript*
 
-[full documentation](https://facebook.github.io/react/docs/jsx-in-depth.html)
+##### Documentation
+
+[documentation link](https://facebook.github.io/react/docs/jsx-in-depth.html)
 
 ### Elements
 *Elements are the smallest building blocks of React apps.
@@ -417,7 +421,9 @@ This method is called when a component is being removed from the DOM:
 
   - componentWillUnmount()
 
-[full documentation](https://facebook.github.io/react/docs/react-component.html)
+##### Documentation
+
+[documentation link](https://facebook.github.io/react/docs/react-component.html)
 
 #### Component State
 _The heart of every React component is its "state", an object that determines how that component renders & behaves. In other words, "state" is what allows you to create components that are dynamic and interactive_
@@ -630,7 +636,9 @@ ReactDOM.render(
 
 [live code](https://codepen.io/gingrassia/pen/JJPNbY?editors=0010)
 
-[full documentation](https://facebook.github.io/react/docs/higher-order-components.html)
+##### Documentation
+
+[documentation link](https://facebook.github.io/react/docs/higher-order-components.html)
 
 ## Flux
 _Flux is a pattern for managing data flow in your application. The most important concept is that data flows in one direction. As we go through this guide we'll talk about the different pieces of a Flux application and show how they form unidirectional cycles that data can flow through_
@@ -751,4 +759,111 @@ originate from views, which is common)_
 
 [clone it](./05-email-list-detail-fetch-flux)
 
-[full documentation](https://github.com/facebook/flux)
+##### Documentation
+
+[documentation link](https://github.com/facebook/flux)
+
+## Redux
+
+### The Gist
+_The whole state of your app is stored in an object tree inside a single store. The only way to change the state tree is to emit an action, an object describing what happened.
+To specify how the actions transform the state tree, you write pure reducers. That's it!_
+
+
+```js
+import { createStore } from 'redux'
+
+/**
+ * This is a reducer, a pure function with (state, action) => state signature.
+ * It describes how an action transforms the state into the next state.
+ *
+ * The shape of the state is up to you: it can be a primitive, an array, an object,
+ * or even an Immutable.js data structure. The only important part is that you should
+ * not mutate the state object, but return a new object if the state changes.
+ *
+ * In this example, we use a `switch` statement and strings, but you can use a helper that
+ * follows a different convention (such as function maps) if it makes sense for your
+ * project.
+ */
+const counter = (state = 0, action) => {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1
+        case 'DECREMENT':
+            return state - 1
+        default:
+            return state
+    }
+}
+
+// Create a Redux store holding the state of your app.
+// Its API is { subscribe, dispatch, getState }.
+let store = createStore(counter)
+
+// You can use subscribe() to update the UI in response to state changes.
+// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
+// However it can also be handy to persist the current state in the localStorage.
+
+store.subscribe(() =>
+    console.log(store.getState())
+)
+
+// The only way to mutate the internal state is to dispatch an action.
+// The actions can be serialized, logged or stored and later replayed.
+store.dispatch({type: 'INCREMENT'})
+// 1
+store.dispatch({type: 'INCREMENT'})
+// 2
+store.dispatch({type: 'DECREMENT'})
+// 1
+```
+
+If you're coming from Flux, there is a single important difference you need to understand. Redux doesn't have a Dispatcher or support many stores. Instead, there is just a single store with a single root reducing function. As your app grows, instead of adding stores, you split the root reducer into smaller reducers independently operating on the different parts of the state tree. This is exactly like how there is just one root component in a React app, but it is composed out of many small components.
+
+### Concepts
+
+[link](http://redux.js.org/docs/introduction/CoreConcepts.html)
+
+### Three principles
+
+[link](http://redux.js.org/docs/introduction/ThreePrinciples.html)
+
+### Actions
+_Actions are payloads of information that send data from your application to your store. They are the only source of information for the store. You send them to the store using store.dispatch()_
+
+[link](http://redux.js.org/docs/basics/Actions.html)
+
+### Reducers
+_Actions describe the fact that something happened, but don't specify how the application's state changes in response. This is the job of reducers_
+
+[link](http://redux.js.org/docs/basics/Reducers.html)
+
+### Store
+The Store is the object that brings them together. The store has the following responsibilities:
+- Holds application state
+- Allows access to state via *getState()*
+- Allows state to be updated via *dispatch(action)*
+- Registers listeners via *subscribe(listener)*
+- Handles unregistering of listeners via the function returned by *subscribe(listener)*
+
+[link](http://redux.js.org/docs/basics/Store.html)
+
+### Data flow
+
+[link](http://redux.js.org/docs/basics/DataFlow.html)
+
+##### Documentation
+
+[documentation](http://redux.js.org/)
+
+## React Redux
+
+[link](http://redux.js.org/docs/basics/UsageWithReact.html)
+
+##### It's exercise time!
+
+[clone it](./06-email-list-detail-redux)
+
+##### Documentation
+
+[api documentation](https://github.com/reactjs/react-redux/blob/master/docs/api.md#api)
