@@ -818,6 +818,8 @@ store.dispatch({type: 'DECREMENT'})
 // 1
 ```
 
+[live code](https://codepen.io/gingrassia/pen/zzzLxe?editors=0010)
+
 If you're coming from Flux, there is a single important difference you need to understand. Redux doesn't have a Dispatcher or support many stores. Instead, there is just a single store with a single root reducing function. As your app grows, instead of adding stores, you split the root reducer into smaller reducers independently operating on the different parts of the state tree. This is exactly like how there is just one root component in a React app, but it is composed out of many small components.
 
 ### Concepts
