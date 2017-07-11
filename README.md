@@ -868,7 +868,7 @@ The Store is the object that brings them together. The store has the following r
 
 ##### Documentation
 
-[api documentation](https://github.com/reactjs/react-redux/blob/master/docs/api.md#api)
+[api documentation](https://github.com/reactjs/react-redux/blob/master/docs/api.md)
 
 ## Redux Thunk
 _Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState as parameters_
