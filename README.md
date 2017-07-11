@@ -1030,7 +1030,7 @@ ReactDOM.render(
 
 #### API
 
-[link](https://github.com/reactjs/react-router-redux#api)
+[link](https://github.com/reactjs/react-router-redux)
 
 ##### Documentation
 
