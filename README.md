@@ -869,3 +869,169 @@ The Store is the object that brings them together. The store has the following r
 ##### Documentation
 
 [api documentation](https://github.com/reactjs/react-redux/blob/master/docs/api.md#api)
+
+## Redux Thunk
+_Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState as parameters_
+
+```js
+const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+
+const increment = () => ({
+    type: INCREMENT_COUNTER
+});
+
+const incrementAsync = () => (
+    (dispatch) => {
+        setTimeout(() => {
+            dispatch(increment());
+        }, 1000);
+    }
+)
+```
+
+#### Usage
+
+```js
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+
+import reducer from './reducers/index';
+
+const store = createStore(
+    reducer,
+    applyMiddleware(thunk)
+);
+```
+
+##### Documentation
+
+[documentation link](https://github.com/gaearon/redux-thunk)
+
+## React Router
+_React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page_
+
+#### Usage
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import {Router, Route, IndexRoute, Link, hashHistory} from 'react-router'
+
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>App</h1>
+                <ul>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/inbox">Inbox</Link></li>
+                </ul>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+class Home extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Home</h1>
+            </div>
+        )
+    }
+}
+
+class About extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>About</h1>
+                <Link to="/">Home</Link>
+            </div>
+        )
+    }
+}
+
+class Index extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Index</h1>
+                <Link to="/">Home</Link>
+            </div>
+        )
+    }
+}
+
+// Finally, we render a <Router> with some <Route>s.
+// It does all the fancy routing stuff for us.
+ReactDOM.render(
+    (
+        <Router history={hashHistory}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home} />
+                <Route path="about" component={About} />
+                <Route path="inbox" component={Inbox} />
+            </Route>
+        </Router>
+    ),
+    document.body
+)
+```
+
+##### Documentation
+
+[documentation link](https://github.com/ReactTraining/react-router/tree/v3/docs)
+
+## React Router Redux
+
+#### Usage
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import {Router, Route, IndexRoute, createMemoryHistory} from 'react-router';
+import {syncHistoryWithStore, routerReducer} from 'react-router-redux';
+
+import reducers from './reducers/index'
+
+// Create an enhanced history that syncs navigation events with the store
+const historyManagement = createMemoryHistory();
+const historyRouterMiddleware = routerMiddleware(historyManagement);
+
+// Add the reducer to your store on the `routing` key
+const store = createStore(
+    combineReducers({
+        ...reducers,
+        routing: routerReducer
+    }),
+    applyMiddleware(historyRouterMiddleware)
+);
+
+const history = syncHistoryWithStore(historyManagement, store);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home} />
+                <Route path="about" component={About} />
+                <Route path="inbox" component={Inbox} />
+            </Route>
+        </Router>
+    </Provider>,
+    document.body
+)
+```
+
+#### API
+
+[link](https://github.com/reactjs/react-router-redux#api)
+
+##### Documentation
+
+[documentation link](https://github.com/reactjs/react-router-redux)
