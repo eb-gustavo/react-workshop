@@ -15,7 +15,7 @@ This workshop is about how to build a React App using Eventbrite stack and not d
 | [react-router](https://www.npmjs.com/package/react-router) | 3.0.2 | [https://github.com/ReactTraining/react-router/tree/v3.0.2/docs](https://github.com/ReactTraining/react-router/tree/v3.0.2/docs) |
 | [react-router-redux](https://www.npmjs.com/package/react-router-redux) | 4.0.4 | [https://github.com/reactjs/react-router-redux/blob/v4.0.4/README.md](https://github.com/reactjs/react-router-redux/blob/v4.0.4/README.md) |
 | [eventbrite_design_system](https://github.com/eventbrite/eventbrite_design_system) | latest | [https://github.com/eventbrite/eventbrite_design_system/blob/master/README.md](https://github.com/eventbrite/eventbrite_design_system/blob/master/README.md) |
-| [es6-promise](https://www.npmjs.com/package/es6-promise) | 3.1.2 | [https://github.com/github/fetch/blob/master/README.md](https://github.com/github/fetch/blob/master/README.md) |
+| [es6-promise](https://www.npmjs.com/package/es6-promise) | 3.1.2 | [http://www.ecma-international.org/ecma-262/6.0/#sec-promise-constructor](http://www.ecma-international.org/ecma-262/6.0/#sec-promise-constructor) |
 | [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch) | 0.11.0 | [https://github.com/github/fetch/blob/master/README.md](https://github.com/github/fetch/blob/master/README.md) |
 | [url-lib](https://www.npmjs.com/package/url-lib) | 2.0.2 | [https://github.com/benmvp/url-lib/tree/master/docs](https://github.com/benmvp/url-lib/tree/master/docs) |
 
